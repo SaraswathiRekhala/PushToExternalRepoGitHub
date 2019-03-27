@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <query name="HQL_CustomVacationData">
+        <![CDATA[
+        select empId as EMPID,type AS VTYPE,status AS VSTATUS,startDate AS VSTARTDATE,endDate AS VENDDATE FROM Vacation
+        ]]>
+    </query>
+
+    <query name="HQL_CustomVacationData__count">
+        <![CDATA[
+        select count(*)  FROM Vacation
+        ]]>
+    </query>
+
+    <sql-query name="SV_DeptData">
+        <![CDATA[
+        select * from DEPARTMENT
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_DeptData__count">
+        <![CDATA[
+        select count(*) from (select * from DEPARTMENT) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

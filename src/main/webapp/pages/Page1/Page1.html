@@ -1,0 +1,264 @@
+<wm-page data-ng-controller="Page1PageController" pagetitle="Page 1" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1"> 
+                    <wm-table editmode="inline" name="AllTypesTable1" title="All types List" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" navigation="Pager" filtermode="multicolumn" spacing="normal"> 
+                        <wm-table-column binding="pkId" caption="Pk Id" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"></wm-table-column> 
+                        <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="short" generator="assigned" show="true" filterwidget="select" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="shortCol" caption="Short Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="intCol" caption="Int Col" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="longCol" caption="Long Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="floatCol" caption="Float Col" edit-widget-type="number" type="double" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="doubleCol" caption="Double Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="bigdecCol" caption="Bigdec Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="bigintCol" caption="Bigint Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="charCol" caption="Char Col" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="stringCol" caption="String Col" edit-widget-type="text" type="string" generator="assigned" show="true" filterwidget="autocomplete" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="textCol" caption="Text Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="clobCol" caption="Clob Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="dateCol" caption="Date Col" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="timeCol" caption="Time Col" edit-widget-type="time" type="time" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" filterwidget="text" editdatepattern="EEEE, MMMM dd, yyyy" readonly="false" required="true"></wm-table-column> 
+                        <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" filterwidget="text" readonly="false">
+                            <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                        </wm-table-column> 
+                        <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
+                        <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action> 
+                        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action> 
+                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                        <wm-table-row-action key="customRow" display-name="" title="Custom rowActions" value="" iconclass="wi wi-settings" class="btn-transparent" show="true" action="customRowAction($event)"></wm-table-row-action> 
+                    </wm-table> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2"> 
+                    <wm-livetable formlayout="dialog" name="AllTypesLiveTable1"> 
+                        <wm-table gridfirstrowselect="true" editmode="dialog" name="AllTypesTable1_1" title="All types List" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" navigation="Classic" filtermode="search" showrecordcount="true" spacing="condensed"> 
+                            <wm-table-column binding="pkId" caption="Pk Id" widget-type="anchor" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"> 
+                                <wm-anchor caption="{{row.getProperty('pkId')}}" hyperlink="" class="" data-ng-class=""></wm-anchor> 
+                            </wm-table-column> 
+                            <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="shortCol" caption="Short Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="intCol" caption="Int Col" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="longCol" caption="Long Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="floatCol" caption="Float Col" edit-widget-type="number" type="double" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="doubleCol" caption="Double Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="bigdecCol" caption="Bigdec Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="bigintCol" caption="Bigint Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="charCol" caption="Char Col" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="stringCol" caption="String Col" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="textCol" caption="Text Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="clobCol" caption="Clob Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="dateCol" caption="Date Col" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="timeCol" caption="Time Col" edit-widget-type="time" type="time" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                            <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false">
+                                <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                            </wm-table-column> 
+                            <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
+                            <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action> 
+                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action> 
+                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                        </wm-table> 
+                        <wm-liveform errormessage="" title="All types Info" formlayout="dialog" iconclass="wi wi-edit" name="AllTypesLiveForm1" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" captionalign="left" captionposition="top"> 
+                            <wm-layoutgrid columns="2" name="layoutgrid1"> 
+                                <wm-gridrow name="gridrow1"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn1"> 
+                                        <wm-form-field name="byteCol" displayname="Byte Col" required="false" show="true" generator="assigned" primary-key="false" key="byteCol" type="short" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn2"> 
+                                        <wm-form-field name="shortCol" displayname="Short Col" required="false" show="true" generator="assigned" primary-key="false" key="shortCol" type="short" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow2"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn3"> 
+                                        <wm-form-field name="intCol" displayname="Int Col" required="false" show="true" generator="assigned" primary-key="false" key="intCol" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"> 
+                                        <wm-form-field name="longCol" displayname="Long Col" required="false" show="true" generator="assigned" primary-key="false" key="longCol" type="long" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow3"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn5"> 
+                                        <wm-form-field name="floatCol" displayname="Float Col" required="false" show="true" generator="assigned" primary-key="false" key="floatCol" type="double" is-related="false" step="0.0001" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn6"> 
+                                        <wm-form-field name="doubleCol" displayname="Double Col" required="false" show="true" generator="assigned" primary-key="false" key="doubleCol" type="big_decimal" is-related="false" step="1e-8" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow4"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn7"> 
+                                        <wm-form-field name="bigdecCol" displayname="Bigdec Col" required="false" show="true" generator="assigned" primary-key="false" key="bigdecCol" type="big_decimal" is-related="false" step="1e-15" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn8"> 
+                                        <wm-form-field name="bigintCol" displayname="Bigint Col" required="false" show="true" generator="assigned" primary-key="false" key="bigintCol" type="long" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow5"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn9"> 
+                                        <wm-form-field name="charCol" displayname="Char Col" required="false" show="true" generator="assigned" primary-key="false" key="charCol" type="string" is-related="false" maxchars="1" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn10"> 
+                                        <wm-form-field name="stringCol" displayname="String Col" required="false" show="true" generator="assigned" primary-key="false" key="stringCol" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow6"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn11"> 
+                                        <wm-form-field name="textCol" displayname="Text Col" required="false" show="true" generator="assigned" primary-key="false" key="textCol" type="text" is-related="false" maxchars="2147483647" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn12"> 
+                                        <wm-form-field name="clobCol" displayname="Clob Col" required="false" show="true" generator="assigned" primary-key="false" key="clobCol" type="text" is-related="false" maxchars="2147483647" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow7"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn13"> 
+                                        <wm-form-field name="dateCol" displayname="Date Col" required="false" show="true" generator="assigned" primary-key="false" key="dateCol" type="date" is-related="false" pc-display="true" mobile-display="true" widget="date"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn14"> 
+                                        <wm-form-field name="timeCol" displayname="Time Col" required="false" show="true" generator="assigned" primary-key="false" key="timeCol" type="time" is-related="false" pc-display="true" mobile-display="true" widget="time"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow8"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn15"> 
+                                        <wm-form-field name="datetimeCol" displayname="Datetime Col" required="false" show="true" generator="assigned" primary-key="false" key="datetimeCol" type="datetime" is-related="false" pc-display="true" mobile-display="true" widget="datetime"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn16"> 
+                                        <wm-form-field name="timestampCol" displayname="Timestamp Col" required="true" show="true" generator="assigned" primary-key="false" key="timestampCol" type="timestamp" is-related="false" pc-display="true" mobile-display="true" widget="timestamp"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow9"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn17"> 
+                                        <wm-form-field name="booleanCol" displayname="Boolean Col" required="false" show="true" generator="assigned" primary-key="false" key="booleanCol" type="boolean" is-related="false" pc-display="true" mobile-display="true" widget="checkbox"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn18"> 
+                                        <wm-form-field name="blobCol" displayname="Blob Col" required="false" show="true" generator="assigned" primary-key="false" key="blobCol" type="blob" is-related="false" maxchars="-1" pc-display="true" mobile-display="true" widget="upload"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                            <wm-form-field name="pkId" displayname="Pk Id" required="true" show="false" generator="identity" primary-key="true" key="pkId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                        </wm-liveform> 
+                    </wm-livetable> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3"> 
+                    <wm-table name="AllTypesTable1_2" title="All types List" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" navigation="Pager" radioselect="false" multiselect="true"> 
+                        <wm-table-column binding="pkId" caption="Pk Id" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"></wm-table-column> 
+                        <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="shortCol" caption="Short Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="intCol" caption="Int Col" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="longCol" caption="Long Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="floatCol" caption="Float Col" edit-widget-type="number" type="double" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="doubleCol" caption="Double Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="bigdecCol" caption="Bigdec Col" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="bigintCol" caption="Bigint Col" edit-widget-type="number" type="long" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="charCol" caption="Char Col" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="stringCol" caption="String Col" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="textCol" caption="Text Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="clobCol" caption="Clob Col" edit-widget-type="text" type="text" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="dateCol" caption="Date Col" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="timeCol" caption="Time Col" edit-widget-type="time" type="time" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false">
+                            <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                        </wm-table-column> 
+                    </wm-table> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4"> 
+                    <wm-table editmode="quickedit" name="EmployeeTable1" title="Employee List" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="Basic" radioselect="false" multiselect="true" on-deselect="EmployeeTable1Deselect($event, $scope, $rowData)"> 
+                        <wm-table-column binding="empId" caption="Emp Id" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"></wm-table-column> 
+                        <wm-table-column binding="firstname" caption="Firstname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="lastname" caption="Lastname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="street" caption="Street" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="city" caption="City" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="state" caption="State" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="zip" caption="Zip" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="birthdate" caption="Birthdate" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="picurl" caption="Picurl" widget-type="image" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"> 
+                            <wm-picture picturesource="{{row.getProperty('picurl')}}" hint="{{row.getProperty('picurl')}}" class="" data-ng-class=""></wm-picture> 
+                        </wm-table-column> 
+                        <wm-table-column binding="jobTitle" caption="Job Title" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="username" caption="Username" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="password" caption="Password" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="role" caption="Role" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="tenantId" caption="Tenant Id" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="department.deptId" caption="Dept Id" primary-key="true" edit-widget-type="select" related-entity-name="Department" type="integer" generator="identity" show="true" readonly="false"></wm-table-column> 
+                        <wm-table-column binding="department.name" caption="Department Name" edit-widget-type="text" related-entity-name="Department" type="string" generator="assigned" readonly="true" show="true"></wm-table-column> 
+                        <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
+                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                    </wm-table> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane5"> 
+                    <wm-livetable name="UserLiveTable1"> 
+                        <wm-table gridfirstrowselect="true" editmode="form" name="UserTable1_2" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic"> 
+                            <wm-table-column binding="userId" caption="User Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column> 
+                            <wm-table-column binding="username" caption="Username" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                            <wm-table-column binding="password" caption="Password" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                            <wm-table-column binding="role" caption="Role" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                            <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column> 
+                            <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
+                            <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
+                            <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+                        </wm-table> 
+                        <wm-liveform errormessage="" title="User Info" formlayout="inline" iconclass="wi wi-edit" name="UserLiveForm1" dataset="bind:Variables.HrdbUserData.dataSet" captionalign="left" captionposition="top"> 
+                            <wm-layoutgrid columns="3" name="layoutgrid2"> 
+                                <wm-gridrow name="gridrow10"> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn19"> 
+                                        <wm-form-field name="username" displayname="Username" required="false" show="true" generator="assigned" primary-key="false" key="username" type="string" is-related="false" maxchars="20" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn20"> 
+                                        <wm-form-field name="password" displayname="Password" required="false" show="true" generator="assigned" primary-key="false" key="password" type="string" is-related="false" maxchars="20" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn21"> 
+                                        <wm-form-field name="role" displayname="Role" required="false" show="true" generator="assigned" primary-key="false" key="role" type="string" is-related="false" maxchars="20" pc-display="true" mobile-display="true" widget="text"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow11"> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn22"> 
+                                        <wm-form-field name="tenantId" displayname="Tenant Id" required="false" show="true" generator="assigned" primary-key="false" key="tenantId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn23"></wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn24"></wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                            <wm-form-field name="userId" displayname="User Id" required="true" show="false" generator="identity" primary-key="true" key="userId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
+                            <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                        </wm-liveform> 
+                    </wm-livetable> 
+                </wm-tabpane> 
+            </wm-tabs> 
+            <wm-table editmode="quickedit" name="UserTable1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" rowclass="blue" on-beforeformrender="UserTable1Beforeformrender($event, $scope, $rowData, $operation)"> 
+                <wm-table-column binding="userId" caption="User Id" primary-key="true" edit-widget-type="number" type="integer" backgroundcolor="#3840ed" generator="identity" readonly="true" show="true"></wm-table-column> 
+                <wm-table-column binding="username" caption="Username" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false" required="true" on-click="usernameOnClick($event, $scope, rowData)"></wm-table-column> 
+                <wm-table-column binding="password" caption="Password" edit-widget-type="text" type="string" generator="assigned" formatpattern="prefix" prefix="sample" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="role" caption="Role" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="tenantId" caption="Tenant Id" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
+                <wm-table-column binding="customField" caption="Custom Column" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
+                    {{row.userId}}
+                </wm-table-column> 
+                <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
+                <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+            </wm-table> 
+            <wm-table editmode="inline" name="UserTable1_1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" on-beforeformrender="UserTable1_1Beforeformrender($event, $scope, $rowData, $operation)"> 
+                <wm-table-column binding="userId" caption="User Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column> 
+                <wm-table-column binding="username" caption="Username" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                <wm-table-column binding="password" caption="Password" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                <wm-table-column binding="role" caption="Role" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+                <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column> 
+                <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
+                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
+                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+            </wm-table> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>

@@ -1,0 +1,21 @@
+<wm-partial data-ng-controller="Partial_PageParamsPageController" name="partial1"> 
+    <wm-table editmode="inline" name="EmployeeTable1" title="Employee List" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="Basic"> 
+        <wm-table-column binding="empId" caption="Emp Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column> 
+        <wm-table-column binding="firstname" caption="Firstname" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="lastname" caption="Lastname" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="street" caption="Street" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="city" caption="City" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="state" caption="State" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="zip" caption="Zip" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="birthdate" caption="Birthdate" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-table-column> 
+        <wm-table-column binding="picurl" caption="Picurl" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="jobTitle" caption="Job Title" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="username" caption="Username" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="role" caption="Role" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
+        <wm-table-column binding="department.deptId" caption="Dept Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Department"></wm-table-column> 
+        <wm-table-column binding="department.name" caption="Department Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="Department" readonly="true"></wm-table-column> 
+        <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
+        <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
+        <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+    </wm-table> 
+</wm-partial>

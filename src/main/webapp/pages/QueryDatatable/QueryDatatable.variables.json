@@ -1,0 +1,43 @@
+{
+  "DbscenariosExecuteSV_AllTypesData" : {
+    "_id" : "wm-DbscenariosExecuteSV_AllTypesData-wm.ServiceVariable-1530511785352",
+    "name" : "DbscenariosExecuteSV_AllTypesData",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.datatablescenarioswmo.dbscenarios.models.query.SvAllTypesDataResponse",
+    "service" : "dbscenarios",
+    "operation" : "executeSV_AllTypesData",
+    "operationId" : "QueryExecutionController_executeSV_AllTypesData",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  },
+  "navigateToAcc2" : {
+    "_id" : "wm-navigateToAcc2-wm.NavigationVariable-1530511877661",
+    "name" : "navigateToAcc2",
+    "owner" : "Page",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "QueryDatatable",
+      "type" : "string"
+    }, {
+      "target" : "accordionName",
+      "value" : "accordionpane2",
+      "type" : "string"
+    } ],
+    "operation" : "gotoAccordion",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  }
+}

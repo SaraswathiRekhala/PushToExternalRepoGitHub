@@ -1,0 +1,219 @@
+[ {
+  "name" : "AllTypesEvents",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "AllTypesFieldProperties",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "AllTypesMultiColumnSearch",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "AllTypesSearchFilter",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "ColumnSelectProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "ConditionalClassProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "CustomColumns",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "CustomFieldActions",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatatableActions",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatatableEvents",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatatablePropsUsingBindings",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatatablePropsUsingScript",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatatableSearchProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DeleteDialogActions",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DisableSortProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DynamicDataTable",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FieldProperties",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "InlineEditRowEvents",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MessagesProperties",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MultiColumnProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MultiColumnSearchProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "NormalTableActionEvents",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "NormalTableConditionalClass",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "NormalTableEvents",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "NormalTableMultiColumFilter",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "NormalTableSearchFilter",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PAllTypesColumnSelectProperty",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Page1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PageParams1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PageParams2",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "departmentId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "PaginationProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PartialDeleteDialogActions",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialMessagesProperties",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialMessagesPropertiesInline",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialMultiColumnSelect",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialPageParams",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PartialPaginationProperty",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialRadioColPropFromDialog",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "PartialRowPosition",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Partial_PageParams",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "departmentId",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "QueryDatatable",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "RadioColumnProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReferenceMultiColumnSearch",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "ReferenceSearchFilter",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "RowPositionProperty",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+} ]

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="SV_UserLoginData">
+        <![CDATA[
+        select * from USER_LOGIN
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_UserLoginData__count">
+        <![CDATA[
+        select count(*) from (select * from USER_LOGIN) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_UserLoginData__identifier">
+        <![CDATA[
+        select * from (select * from USER_LOGIN) wmTempTable where `USER_ID`=:userId
+        ]]>
+    <query-param name="userId" type="java.lang.Short"/>
+    </sql-query>
+
+    <sql-query name="SV_UpdateListOfRecords">
+        <![CDATA[
+        update USER_LOGIN set ROLE=:UROLE where USER_ID IN (:USERID)
+        ]]>
+    <query-param name="UROLE" type="java.lang.String"/>
+    <query-param name="USERID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="Sv_AllTypes">
+        <![CDATA[
+        select * from `ALL TYPES`
+        ]]>
+    </sql-query>
+
+    <sql-query name="Sv_AllTypes__count">
+        <![CDATA[
+        select count(*) from (select * from `ALL TYPES`) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="Sv_AllTypes__identifier">
+        <![CDATA[
+        select * from (select * from `ALL TYPES`) wmTempTable where `PK ID`=:pkId
+        ]]>
+    <query-param name="pkId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <query name="HQL_AllTypesWithId">
+        <![CDATA[
+        from AllTypes where pkId=:PKID
+        ]]>
+    <query-param name="PKID" type="java.lang.Integer"/>
+    </query>
+
+    <query name="HQL_AllTypesWithId__count">
+        <![CDATA[
+        select count(*) from AllTypes where pkId=:PKID
+        ]]>
+    <query-param name="PKID" type="java.lang.Integer"/>
+    </query>
+
+    <sql-query name="SV_AllTypesData">
+        <![CDATA[
+        select * from `ALL TYPES`
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_AllTypesData__count">
+        <![CDATA[
+        select count(*) from (select * from `ALL TYPES`) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_AllTypesData__identifier">
+        <![CDATA[
+        select * from (select * from `ALL TYPES`) wmTempTable where `PK ID`=:pkId
+        ]]>
+    <query-param name="pkId" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

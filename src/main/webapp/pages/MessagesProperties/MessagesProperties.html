@@ -1,0 +1,15 @@
+<wm-page data-ng-controller="MessagesPropertiesPageController" pagetitle="Messages Properties" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-accordion name="accordion1"> 
+                <wm-accordionpane name="accordionpane1" content="PartialMessagesProperties" title="Form As Dialog"></wm-accordionpane> 
+                <wm-accordionpane name="accordionpane2" title="Inline Edit" content="PartialMessagesPropertiesInline"></wm-accordionpane> 
+                <wm-accordionpane name="accordionpane3"></wm-accordionpane> 
+            </wm-accordion> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>
