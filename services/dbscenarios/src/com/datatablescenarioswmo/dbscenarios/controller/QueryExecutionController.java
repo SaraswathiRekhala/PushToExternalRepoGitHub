@@ -33,6 +33,7 @@ import com.wavemaker.commons.wrapper.StringWrapper;
 import com.wavemaker.runtime.data.export.ExportOptions;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.runtime.util.WMMultipartUtils;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
@@ -92,6 +93,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_UserLoginData")
     @RequestMapping(value = "/queries/SV_UserLoginData/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_UserLoginData(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_UserLoginData");
 
@@ -153,6 +155,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query Sv_AllTypes")
     @RequestMapping(value = "/queries/Sv_AllTypes/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSv_AllTypes(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: Sv_AllTypes");
 
@@ -181,6 +184,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_AllTypesWithId")
     @RequestMapping(value = "/queries/HQL_AllTypesWithId/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_AllTypesWithId(@RequestParam(value = "PKID") Integer pkid, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_AllTypesWithId");
 
@@ -232,6 +236,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_AllTypesData")
     @RequestMapping(value = "/queries/SV_AllTypesData/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_AllTypesData(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_AllTypesData");
 

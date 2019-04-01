@@ -48,7 +48,7 @@ public class HrdbQueryExecutorServiceImpl implements HrdbQueryExecutorService {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_CustomVacationData", params, HqlCustomVacationDataResponse.class);
+        QueryProcedureInput<HqlCustomVacationDataResponse> queryInput = new QueryProcedureInput<>("HQL_CustomVacationData", params, HqlCustomVacationDataResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -68,7 +68,7 @@ public class HrdbQueryExecutorServiceImpl implements HrdbQueryExecutorService {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_DeptData", params, SvDeptDataResponse.class);
+        QueryProcedureInput<SvDeptDataResponse> queryInput = new QueryProcedureInput<>("SV_DeptData", params, SvDeptDataResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

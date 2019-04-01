@@ -20,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.query.WMQueryExecutor;
 import com.wavemaker.runtime.data.exception.BlobContentNotFoundException;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
@@ -57,7 +58,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         SvUserLoginDataResponse _result =  queryExecutor.executeNamedQuery("SV_UserLoginData__identifier", params, SvUserLoginDataResponse.class);
         if(_result.getProfile() == null) {
             LOGGER.debug("Blob content not exists for profile in query SV_UserLoginData");
-            throw new BlobContentNotFoundException("Blob content not found for profile in query SV_UserLoginData");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "profile", "query", "SV_UserLoginData");
         }
         return new ByteArrayInputStream(_result.getProfile());
     }
@@ -68,7 +69,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_UserLoginData", params, SvUserLoginDataResponse.class);
+        QueryProcedureInput<SvUserLoginDataResponse> queryInput = new QueryProcedureInput<>("SV_UserLoginData", params, SvUserLoginDataResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -103,7 +104,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         SvAllTypesResponse _result =  queryExecutor.executeNamedQuery("Sv_AllTypes__identifier", params, SvAllTypesResponse.class);
         if(_result.getBlobCol() == null) {
             LOGGER.debug("Blob content not exists for blobCol in query Sv_AllTypes");
-            throw new BlobContentNotFoundException("Blob content not found for blobCol in query Sv_AllTypes");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "blobCol", "query", "Sv_AllTypes");
         }
         return new ByteArrayInputStream(_result.getBlobCol());
     }
@@ -114,7 +115,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("Sv_AllTypes", params, SvAllTypesResponse.class);
+        QueryProcedureInput<SvAllTypesResponse> queryInput = new QueryProcedureInput<>("Sv_AllTypes", params, SvAllTypesResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -136,7 +137,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
 
         params.put("PKID", pkid);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_AllTypesWithId", params, AllTypes.class);
+        QueryProcedureInput<AllTypes> queryInput = new QueryProcedureInput<>("HQL_AllTypesWithId", params, AllTypes.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -160,7 +161,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         SvAllTypesDataResponse _result =  queryExecutor.executeNamedQuery("SV_AllTypesData__identifier", params, SvAllTypesDataResponse.class);
         if(_result.getBlobCol() == null) {
             LOGGER.debug("Blob content not exists for blobCol in query SV_AllTypesData");
-            throw new BlobContentNotFoundException("Blob content not found for blobCol in query SV_AllTypesData");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "blobCol", "query", "SV_AllTypesData");
         }
         return new ByteArrayInputStream(_result.getBlobCol());
     }
@@ -171,7 +172,7 @@ public class DbscenariosQueryExecutorServiceImpl implements DbscenariosQueryExec
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_AllTypesData", params, SvAllTypesDataResponse.class);
+        QueryProcedureInput<SvAllTypesDataResponse> queryInput = new QueryProcedureInput<>("SV_AllTypesData", params, SvAllTypesDataResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
