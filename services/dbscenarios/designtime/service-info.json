@@ -1,0 +1,6 @@
+{
+  "id" : "dbscenarios",
+  "type" : "DataService",
+  "packageNames" : [ "com.datatablescenarioswmo.dbscenarios" ],
+  "title" : "dbscenarios"
+}

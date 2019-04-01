@@ -1,11 +1,11 @@
-<wm-page data-ng-controller="DynamicDataTablePageController" pagetitle="Dynamic Data Table" name="page1"> 
+<wm-page pagetitle="Dynamic Data Table" name="page1"> 
     <wm-header content="header" name="header1"></wm-header> 
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
     <wm-content name="content1"> 
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
         <wm-page-content columnwidth="10" name="page_content1"> 
-            <wm-button class="btn-default" caption="Show Dept Data(Native SQL)" type="button" margin="unset 0.5em" name="button1" on-click="button1Click($event, $scope)"></wm-button> 
-            <wm-button class="btn-default" caption="Show Vacation Data(HQL)" type="button" margin="unset 0.5em" name="button2" on-click="button2Click($event, $scope)"></wm-button> 
+            <wm-button class="btn-default" caption="Show Dept Data(Native SQL)" type="button" margin="unset 0.5em" name="button1" on-click="button1Click($event, widget)"></wm-button> 
+            <wm-button class="btn-default" caption="Show Vacation Data(HQL)" type="button" margin="unset 0.5em" name="button2" on-click="button2Click($event, widget)"></wm-button> 
             <wm-table name="DynamicGridData" title="" dataset="bind:Variables.SVDeptData.dataSet" navigation="Basic"></wm-table> 
         </wm-page-content> 
     </wm-content> 

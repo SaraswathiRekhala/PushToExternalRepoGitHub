@@ -1,4 +1,4 @@
-<wm-page data-ng-controller="QueryDatatablePageController" pagetitle="Query Datatable" name="page1"> 
+<wm-page pagetitle="Query Datatable" name="page1"> 
     <wm-header content="header" name="header1"></wm-header> 
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
     <wm-content name="content1"> 
@@ -21,14 +21,14 @@
                         <wm-table-column binding="dateCol" caption="Date Col" edit-widget-type="date" type="date" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="blobCol" caption="Blob Col" widget-type="image" edit-widget-type="number" type="byte" show="true" readonly="false"> 
-                            <wm-picture picturesource="{{row.getProperty('blobCol')}}" hint="{{row.getProperty('blobCol')}}" class="" data-ng-class=""></wm-picture> 
+                            <wm-picture picturesource="bind:(row.getProperty('blobCol'))" hint="bind:(row.getProperty('blobCol'))" class="" data-ng-class=""></wm-picture> 
                         </wm-table-column> 
                         <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="integer" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="stringCol" caption="String Col" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="clobCol" caption="Clob Col" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="doubleCol" caption="Double Col" edit-widget-type="number" type="double" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="timeCol" caption="Time Col" edit-widget-type="time" type="time" show="true" readonly="false"></wm-table-column> 
-                        <wm-table-action key="customButton" display-name="Navigate to Accordion2" title="Navigate to Accordion2" value="" iconclass="" class="btn-secondary" show="true" action="customButtonAction($event)" widget-type="button" shortcutkey=""></wm-table-action> 
+                        <wm-table-action key="customButton" display-name="Navigate to Accordion2" title="Navigate to Accordion2" value="" iconclass="" class="btn-secondary" show="true" action="executeSV_AllTypesDataTable1_customButtonAction($event)" widget-type="button" shortcutkey=""></wm-table-action> 
                     </wm-table> 
                 </wm-accordionpane> 
                 <wm-accordionpane name="accordionpane2" title="Selected Items(Query)"> 
@@ -52,7 +52,7 @@
                         <wm-table-column binding="clobCol" caption="Clob Col" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="doubleCol" caption="Double Col" edit-widget-type="number" type="double" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="timeCol" caption="Time Col" edit-widget-type="time" type="time" show="true" readonly="false"></wm-table-column> 
-                        <wm-table-action key="customButton" display-name="DeselectAll" title="DeselectAll" value="" iconclass="" class="btn-secondary" show="true" action="customButtonAction($event)" widget-type="button" shortcutkey=""></wm-table-action> 
+                        <wm-table-action key="customButton" display-name="DeselectAll" title="DeselectAll" value="" iconclass="" class="btn-secondary" show="true" action="executeSV_AllTypesDataTable2_customButtonAction($event)" widget-type="button" shortcutkey=""></wm-table-action> 
                     </wm-table> 
                 </wm-accordionpane> 
             </wm-accordion> 

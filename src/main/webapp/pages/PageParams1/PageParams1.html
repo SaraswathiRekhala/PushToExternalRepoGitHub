@@ -1,10 +1,10 @@
-<wm-page data-ng-controller="PageParams1PageController" pagetitle="Page Params 1" name="page1"> 
+<wm-page pagetitle="Page Params 1" name="page1"> 
     <wm-header content="header" name="header1"></wm-header> 
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
     <wm-content name="content1"> 
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
         <wm-page-content columnwidth="10" name="page_content1"> 
-            <wm-table editmode="inline" name="DepartmentTable1" title="Department List" dataset="bind:Variables.HrdbDepartmentData.dataSet" navigation="Classic" on-select="Actions.goToPage_PageParams2.invoke()"> 
+            <wm-table editmode="inline" name="DepartmentTable1" title="Department List" dataset="bind:Variables.HrdbDepartmentData.dataSet" navigation="Classic" on-rowselect="Actions.goToPage_PageParams2.invoke()"> 
                 <wm-table-column binding="deptId" caption="Dept Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column> 
                 <wm-table-column binding="deptCode" caption="Dept Code" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                 <wm-table-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
@@ -16,8 +16,8 @@
                 <wm-table-column binding="location" caption="Location" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                 <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column> 
                 <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
-                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
-                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow($event)"></wm-table-row-action> 
+                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action> 
             </wm-table> 
         </wm-page-content> 
     </wm-content> 

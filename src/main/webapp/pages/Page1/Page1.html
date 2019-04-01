@@ -1,4 +1,4 @@
-<wm-page data-ng-controller="Page1PageController" pagetitle="Page 1" name="page1"> 
+<wm-page pagetitle="Page 1" name="page1"> 
     <wm-header content="header" name="header1"></wm-header> 
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
     <wm-content name="content1"> 
@@ -25,21 +25,21 @@
                         <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" filterwidget="text" editdatepattern="EEEE, MMMM dd, yyyy" readonly="false" required="true"></wm-table-column> 
                         <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
-                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" filterwidget="text" readonly="false">
-                            <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" filterwidget="text" readonly="false"> 
+                            <a class="col-md-9" target="_blank" show="bind:row.getProperty('blobCol') != null" href="{{row.getProperty('blobCol')}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a> 
                         </wm-table-column> 
                         <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
                         <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action> 
-                        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action> 
-                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
-                        <wm-table-row-action key="customRow" display-name="" title="Custom rowActions" value="" iconclass="wi wi-settings" class="btn-transparent" show="true" action="customRowAction($event)"></wm-table-row-action> 
+                        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false"></wm-table-row-action> 
+                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action> 
+                        <wm-table-row-action key="customRow" display-name="" title="Custom rowActions" value="" iconclass="wi wi-settings" class="btn-transparent" show="true" action="AllTypesTable1_customRowAction($event,row)"></wm-table-row-action> 
                     </wm-table> 
                 </wm-tabpane> 
                 <wm-tabpane name="tabpane2"> 
                     <wm-livetable formlayout="dialog" name="AllTypesLiveTable1"> 
                         <wm-table gridfirstrowselect="true" editmode="dialog" name="AllTypesTable1_1" title="All types List" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" navigation="Classic" filtermode="search" showrecordcount="true" spacing="condensed"> 
                             <wm-table-column binding="pkId" caption="Pk Id" widget-type="anchor" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"> 
-                                <wm-anchor caption="{{row.getProperty('pkId')}}" hyperlink="" class="" data-ng-class=""></wm-anchor> 
+                                <wm-anchor caption="bind:(row.getProperty('pkId'))" hyperlink="" class="" data-ng-class=""></wm-anchor> 
                             </wm-table-column> 
                             <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
                             <wm-table-column binding="shortCol" caption="Short Col" edit-widget-type="number" type="short" generator="assigned" show="true" readonly="false"></wm-table-column> 
@@ -58,13 +58,13 @@
                             <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
                             <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" readonly="false"></wm-table-column> 
                             <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
-                            <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false">
-                                <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                            <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false"> 
+                                <a class="col-md-9" target="_blank" show="bind:row.getProperty('blobCol') != null" href="{{row.getProperty('blobCol')}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a> 
                             </wm-table-column> 
                             <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
                             <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action> 
-                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action> 
-                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false"></wm-table-row-action> 
+                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action> 
                         </wm-table> 
                         <wm-liveform errormessage="" title="All types Info" formlayout="dialog" iconclass="wi wi-edit" name="AllTypesLiveForm1" dataset="bind:Variables.DbscenariosAllTypesData.dataSet" captionalign="left" captionposition="top"> 
                             <wm-layoutgrid columns="2" name="layoutgrid1"> 
@@ -143,7 +143,7 @@
                             </wm-layoutgrid> 
                             <wm-form-field name="pkId" displayname="Pk Id" required="true" show="false" generator="identity" primary-key="true" key="pkId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
                             <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
-                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true" action=""></wm-form-action> 
                         </wm-liveform> 
                     </wm-livetable> 
                 </wm-tabpane> 
@@ -167,13 +167,13 @@
                         <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column> 
-                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false">
-                            <a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                        <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false"> 
+                            <a class="col-md-9" target="_blank" show="bind:row.getProperty('blobCol') != null" href="{{row.getProperty('blobCol')}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a> 
                         </wm-table-column> 
                     </wm-table> 
                 </wm-tabpane> 
                 <wm-tabpane name="tabpane4"> 
-                    <wm-table editmode="quickedit" name="EmployeeTable1" title="Employee List" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="Basic" radioselect="false" multiselect="true" on-deselect="EmployeeTable1Deselect($event, $scope, $rowData)"> 
+                    <wm-table editmode="quickedit" name="EmployeeTable1" title="Employee List" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="Basic" radioselect="false" multiselect="true" on-rowdeselect="EmployeeTable1Deselect($event, widget, row)"> 
                         <wm-table-column binding="empId" caption="Emp Id" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"></wm-table-column> 
                         <wm-table-column binding="firstname" caption="Firstname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="lastname" caption="Lastname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
@@ -183,7 +183,7 @@
                         <wm-table-column binding="zip" caption="Zip" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="birthdate" caption="Birthdate" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="picurl" caption="Picurl" widget-type="image" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"> 
-                            <wm-picture picturesource="{{row.getProperty('picurl')}}" hint="{{row.getProperty('picurl')}}" class="" data-ng-class=""></wm-picture> 
+                            <wm-picture picturesource="bind:(row.getProperty('picurl'))" hint="bind:(row.getProperty('picurl'))" class="" data-ng-class=""></wm-picture> 
                         </wm-table-column> 
                         <wm-table-column binding="jobTitle" caption="Job Title" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="username" caption="Username" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
@@ -193,7 +193,7 @@
                         <wm-table-column binding="department.deptId" caption="Dept Id" primary-key="true" edit-widget-type="select" related-entity-name="Department" type="integer" generator="identity" show="true" readonly="false"></wm-table-column> 
                         <wm-table-column binding="department.name" caption="Department Name" edit-widget-type="text" related-entity-name="Department" type="string" generator="assigned" readonly="true" show="true"></wm-table-column> 
                         <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
-                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action> 
                     </wm-table> 
                 </wm-tabpane> 
                 <wm-tabpane name="tabpane5"> 
@@ -205,8 +205,8 @@
                             <wm-table-column binding="role" caption="Role" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                             <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column> 
                             <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
-                            <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
-                            <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+                            <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow($event)"></wm-table-row-action> 
+                            <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action> 
                         </wm-table> 
                         <wm-liveform errormessage="" title="User Info" formlayout="inline" iconclass="wi wi-edit" name="UserLiveForm1" dataset="bind:Variables.HrdbUserData.dataSet" captionalign="left" captionposition="top"> 
                             <wm-layoutgrid columns="3" name="layoutgrid2"> 
@@ -231,32 +231,32 @@
                             </wm-layoutgrid> 
                             <wm-form-field name="userId" displayname="User Id" required="true" show="false" generator="identity" primary-key="true" key="userId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
                             <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
-                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                            <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true" action=""></wm-form-action> 
                         </wm-liveform> 
                     </wm-livetable> 
                 </wm-tabpane> 
             </wm-tabs> 
-            <wm-table editmode="quickedit" name="UserTable1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" rowclass="blue" on-beforeformrender="UserTable1Beforeformrender($event, $scope, $rowData, $operation)"> 
+            <wm-table editmode="quickedit" name="UserTable1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" rowclass="blue" on-beforeformrender="UserTable1Beforeformrender($event, widget, row, $operation)"> 
                 <wm-table-column binding="userId" caption="User Id" primary-key="true" edit-widget-type="number" type="integer" backgroundcolor="#3840ed" generator="identity" readonly="true" show="true"></wm-table-column> 
-                <wm-table-column binding="username" caption="Username" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false" required="true" on-click="usernameOnClick($event, $scope, rowData)"></wm-table-column> 
+                <wm-table-column binding="username" caption="Username" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false" required="true" on-click="UserTable1_usernameOnClick($event, widget, row)"></wm-table-column> 
                 <wm-table-column binding="password" caption="Password" edit-widget-type="text" type="string" generator="assigned" formatpattern="prefix" prefix="sample" show="true" readonly="false"></wm-table-column> 
                 <wm-table-column binding="role" caption="Role" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column> 
                 <wm-table-column binding="tenantId" caption="Tenant Id" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
                 <wm-table-column binding="customField" caption="Custom Column" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
-                    {{row.userId}}
+                     {{row?.userId}} 
                 </wm-table-column> 
                 <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
-                <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
+                <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action> 
             </wm-table> 
-            <wm-table editmode="inline" name="UserTable1_1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" on-beforeformrender="UserTable1_1Beforeformrender($event, $scope, $rowData, $operation)"> 
+            <wm-table editmode="inline" name="UserTable1_1" title="User List" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Basic" on-beforeformrender="UserTable1_1Beforeformrender($event, widget, row, $operation)"> 
                 <wm-table-column binding="userId" caption="User Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column> 
                 <wm-table-column binding="username" caption="Username" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                 <wm-table-column binding="password" caption="Password" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                 <wm-table-column binding="role" caption="Role" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column> 
                 <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column> 
                 <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action> 
-                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action> 
-                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action> 
+                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow($event)"></wm-table-row-action> 
+                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action> 
             </wm-table> 
         </wm-page-content> 
     </wm-content> 

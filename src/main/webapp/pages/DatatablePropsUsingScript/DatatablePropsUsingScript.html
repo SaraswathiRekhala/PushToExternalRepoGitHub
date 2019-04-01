@@ -1,4 +1,4 @@
-<wm-page data-ng-controller="DatatablePropsUsingScriptPageController" pagetitle="Datatable Using Bindings" name="page1"> 
+<wm-page pagetitle="Datatable Using Bindings" name="page1"> 
     <wm-header content="header" name="header1"></wm-header> 
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
     <wm-content name="content1"> 
@@ -23,7 +23,7 @@
                                     <wm-composite name="composite1"> 
                                         <wm-label class="col-md-3 control-label" name="label1" caption="Title"></wm-label> 
                                         <wm-container class="col-md-9" name="container1"> 
-                                            <wm-text name="titleText" updateon="blur" on-change="titleTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                            <wm-text name="titleText" updateon="blur" on-change="titleTextChange($event, widget, newVal, oldVal)"></wm-text> 
                                         </wm-container> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
@@ -33,7 +33,7 @@
                                     <wm-composite name="composite4"> 
                                         <wm-label class="col-md-3 control-label" name="label4" caption="Sub Heading"></wm-label> 
                                         <wm-container class="col-md-9" name="container4"> 
-                                            <wm-textarea name="subHeadingTextarea" on-change="subHeadingTextareaChange($event, $scope, newVal, oldVal)"></wm-textarea> 
+                                            <wm-textarea name="subHeadingTextarea" on-change="subHeadingTextareaChange($event, widget, newVal, oldVal)"></wm-textarea> 
                                         </wm-container> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
@@ -43,7 +43,7 @@
                                     <wm-composite name="composite5"> 
                                         <wm-label class="col-md-3 control-label" name="label5" caption="Spacing"></wm-label> 
                                         <wm-container class="col-md-9" name="container5"> 
-                                            <wm-select name="spacingSelect" dataset="normal,condensed" on-change="spacingSelectChange($event, $scope, newVal, oldVal)"></wm-select> 
+                                            <wm-select name="spacingSelect" dataset="normal,condensed" on-change="spacingSelectChange($event, widget, newVal, oldVal)"></wm-select> 
                                         </wm-container> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
@@ -63,7 +63,7 @@
                                     <wm-composite name="composite7"> 
                                         <wm-label class="col-md-3 control-label" name="label7" caption="Width"></wm-label> 
                                         <wm-container class="col-md-9" name="container7"> 
-                                            <wm-text name="widthText" on-change="widthTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                            <wm-text name="widthText" on-change="widthTextChange($event, widget, newVal, oldVal)"></wm-text> 
                                         </wm-container> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
@@ -93,9 +93,9 @@
                                     <wm-composite name="composite10" padding="0.5em unset"> 
                                         <wm-label class="col-md-3 control-label" name="label10" caption="Loading Icon"></wm-label> 
                                         <wm-container class="col-md-9" name="container10"> 
-                                            <wm-text name="loadingIconText" on-change="loadingIconTextChange($event, $scope, newVal, oldVal)" placeholder="Enter Spinner Text"></wm-text> 
+                                            <wm-text name="loadingIconText" on-change="loadingIconTextChange($event, widget, newVal, oldVal)" placeholder="Enter Spinner Text"></wm-text> 
                                         </wm-container> 
-                                        <wm-button class="btn-default" caption="Invoke Variable" type="button" margin="unset 0.5em" name="button1" on-click="button1Click($event, $scope)" padding="0.5em unset"></wm-button> 
+                                        <wm-button class="btn-default" caption="Invoke Variable" type="button" margin="unset 0.5em" name="button1" on-click="button1Click($event, widget)" padding="0.5em unset"></wm-button> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
                             </wm-gridrow> 
@@ -104,7 +104,7 @@
                                     <wm-composite name="composite11" captionposition="left" horizontalalign="left" padding="0.5em unset"> 
                                         <wm-label class="col-md-3 control-label" name="label11" caption="Title Icon Class"></wm-label> 
                                         <wm-container class="col-md-9" name="container11"> 
-                                            <wm-text name="iconClassText" on-change="iconClassTextChange($event, $scope, newVal, oldVal)" placeholder="wi wi-database"></wm-text> 
+                                            <wm-text name="iconClassText" on-change="iconClassTextChange($event, widget, newVal, oldVal)" placeholder="wi wi-database"></wm-text> 
                                         </wm-container> 
                                     </wm-composite> 
                                 </wm-gridcolumn> 
@@ -128,9 +128,9 @@
                                         <wm-table-column binding="tenantId" caption="Tenant Id" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column> 
                                         <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column> 
                                         <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action> 
-                                        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action> 
-                                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action> 
-                                        <wm-table-row-action key="customRow" display-name="" title="myAction" value="" iconclass="wi wi-settings" class="btn-transparent" show="true" action="customRowAction($event)"></wm-table-row-action> 
+                                        <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false"></wm-table-row-action> 
+                                        <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action> 
+                                        <wm-table-row-action key="customRow" display-name="" title="myAction" value="" iconclass="wi wi-settings" class="btn-transparent" show="true" action="DepartmentTable1_customRowAction($event,row)"></wm-table-row-action> 
                                     </wm-table> 
                                     <wm-liveform errormessage="" title="Department Info" formlayout="dialog" iconclass="wi wi-edit" name="DepartmentLiveForm1" dataset="bind:Variables.HrdbDepartmentData.dataSet" captionalign="left" captionposition="top"> 
                                         <wm-layoutgrid columns="1" name="layoutgrid3"> 
@@ -182,7 +182,7 @@
                                         </wm-layoutgrid> 
                                         <wm-form-field name="deptId" displayname="Dept Id" required="true" show="false" generator="identity" primary-key="true" key="deptId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
                                         <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
-                                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true" action=""></wm-form-action> 
                                     </wm-liveform> 
                                 </wm-livetable> 
                             </wm-tabpane> 
@@ -203,7 +203,7 @@
                         <wm-composite name="composite12"> 
                             <wm-label class="col-md-3 control-label" name="label12" caption="Show Header"></wm-label> 
                             <wm-container class="col-md-9" name="container12"> 
-                                <wm-checkbox caption="Toggle" type="toggle" name="showHeaderToggle" on-change="showHeaderToggleChange($event, $scope, newVal, oldVal)"></wm-checkbox> 
+                                <wm-checkbox caption="Toggle" type="toggle" name="showHeaderToggle" on-change="showHeaderToggleChange($event, widget, newVal, oldVal)"></wm-checkbox> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -211,7 +211,7 @@
                         <wm-composite name="composite12_1"> 
                             <wm-label class="col-md-3 control-label" name="label12_1" caption="Show Filter"></wm-label> 
                             <wm-container class="col-md-9" name="container12_1"> 
-                                <wm-select name="searchSelect" dataset="No Filter, Search, Multi-column" on-change="searchSelectChange($event, $scope, newVal, oldVal)"></wm-select> 
+                                <wm-select name="searchSelect" dataset="No Filter, Search, Multi-column" on-change="searchSelectChange($event, widget, newVal, oldVal)"></wm-select> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -221,7 +221,7 @@
                         <wm-composite name="composite13"> 
                             <wm-label class="col-md-3 control-label" name="label14" caption="Radio Column"></wm-label> 
                             <wm-container class="col-md-9" name="container13"> 
-                                <wm-checkbox caption="Toggle" type="toggle" name="radioColToggle" on-change="radioColToggleChange($event, $scope, newVal, oldVal)"></wm-checkbox> 
+                                <wm-checkbox caption="Toggle" type="toggle" name="radioColToggle" on-change="radioColToggleChange($event, widget, newVal, oldVal)"></wm-checkbox> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -229,7 +229,7 @@
                         <wm-composite name="composite14"> 
                             <wm-label class="col-md-3 control-label" name="label15" caption="Enable Sort"></wm-label> 
                             <wm-container class="col-md-9" name="container14"> 
-                                <wm-checkbox caption="Toggle" type="toggle" name="enableSortToggle" on-change="enableSortToggleChange($event, $scope, newVal, oldVal)"></wm-checkbox> 
+                                <wm-checkbox caption="Toggle" type="toggle" name="enableSortToggle" on-change="enableSortToggleChange($event, widget, newVal, oldVal)"></wm-checkbox> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -239,7 +239,7 @@
                         <wm-composite name="composite15"> 
                             <wm-label class="col-md-3 control-label" name="label16" caption="Column Selection"></wm-label> 
                             <wm-container class="col-md-9" name="container15"> 
-                                <wm-checkbox caption="Toggle" type="toggle" name="colSelectionToggle" on-change="colSelectionToggleChange($event, $scope, newVal, oldVal)"></wm-checkbox> 
+                                <wm-checkbox caption="Toggle" type="toggle" name="colSelectionToggle" on-change="colSelectionToggleChange($event, widget, newVal, oldVal)"></wm-checkbox> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -257,7 +257,7 @@
                         <wm-composite name="composite21"> 
                             <wm-label class="col-md-3 control-label" name="label22" caption="Delete Message"></wm-label> 
                             <wm-container class="col-md-9" name="container21"> 
-                                <wm-textarea name="deleteMsgTextarea" on-change="deleteMsgTextareaChange($event, $scope, newVal, oldVal)"></wm-textarea> 
+                                <wm-textarea name="deleteMsgTextarea" on-change="deleteMsgTextareaChange($event, widget, newVal, oldVal)"></wm-textarea> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -265,7 +265,7 @@
                         <wm-composite name="composite18"> 
                             <wm-label class="col-md-3 control-label" name="label19" caption="Message On Delete"></wm-label> 
                             <wm-container class="col-md-9" name="container18"> 
-                                <wm-text name="msgOnDeleteText" on-change="msgOnDeleteTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                <wm-text name="msgOnDeleteText" on-change="msgOnDeleteTextChange($event, widget, newVal, oldVal)"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -275,7 +275,7 @@
                         <wm-composite name="composite19"> 
                             <wm-label class="col-md-3 control-label" name="label20" caption="No Data Message"></wm-label> 
                             <wm-container class="col-md-9" name="container19"> 
-                                <wm-text name="noDataMsgText" on-change="noDataMsgTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                <wm-text name="noDataMsgText" on-change="noDataMsgTextChange($event, widget, newVal, oldVal)"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -283,7 +283,7 @@
                         <wm-composite name="composite20"> 
                             <wm-label class="col-md-3 control-label" name="label21" caption="Data Loading Message"></wm-label> 
                             <wm-container class="col-md-9" name="container20"> 
-                                <wm-text name="dataLoadingMsgText" on-change="dataLoadingMsgTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                <wm-text name="dataLoadingMsgText" on-change="dataLoadingMsgTextChange($event, widget, newVal, oldVal)"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                         <wm-button class="btn-default" caption="Button" type="button" margin="unset 0.5em" name="button2" on-click="Variables.HrdbDepartmentData.listRecords()"></wm-button> 
@@ -294,7 +294,7 @@
                         <wm-composite name="composite21_1"> 
                             <wm-label class="col-md-3 control-label" name="label22_1" caption="Confirm Action Text"></wm-label> 
                             <wm-container class="col-md-9" name="container21_1"> 
-                                <wm-text name="confirmText" on-change="confirmTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                <wm-text name="confirmText" on-change="confirmTextChange($event, widget, newVal, oldVal)"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -302,7 +302,7 @@
                         <wm-composite name="composite22"> 
                             <wm-label class="col-md-3 control-label" name="label23" caption="CancelActionText"></wm-label> 
                             <wm-container class="col-md-9" name="container22"> 
-                                <wm-text name="cancelText" on-change="cancelTextChange($event, $scope, newVal, oldVal)"></wm-text> 
+                                <wm-text name="cancelText" on-change="cancelTextChange($event, widget, newVal, oldVal)"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 
@@ -312,7 +312,7 @@
                         <wm-composite name="composite23"> 
                             <wm-label class="col-md-3 control-label" name="label24" caption="Row Class"></wm-label> 
                             <wm-container class="col-md-9" name="container23"> 
-                                <wm-text name="rowClassText" on-change="rowClassTextChange($event, $scope, newVal, oldVal)" placeholder="color"></wm-text> 
+                                <wm-text name="rowClassText" on-change="rowClassTextChange($event, widget, newVal, oldVal)" placeholder="color"></wm-text> 
                             </wm-container> 
                         </wm-composite> 
                     </wm-gridcolumn> 

@@ -1,0 +1,6 @@
+{
+  "id" : "hrdb",
+  "type" : "DataService",
+  "packageNames" : [ "com.datatablescenarioswmo.hrdb" ],
+  "title" : "hrdb"
+}
